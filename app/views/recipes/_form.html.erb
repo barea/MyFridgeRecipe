@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <% @ingredients.each do |ingredient| %>
+  <div class="field">
+  <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>
+  <%= ingredient.name %>
+   </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>

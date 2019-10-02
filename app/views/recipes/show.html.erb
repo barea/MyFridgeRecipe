@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients.map(&:name).join(', ') %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @recipe.title %>
 </p>
