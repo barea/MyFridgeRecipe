@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :ingredients
   root to: 'recipes#searchbyingt'
   resources :recipes do 
