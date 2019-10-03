@@ -4,37 +4,44 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    #@recipes = Recipe.all
+    @recipes = Recipe.accessible_by(current_ability)
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
   end
 
   def searchbyingt
+     @ingredients = Ingredient.all
     if params[:ingredient_ids]      
         @recipes = Ingredient.where(id: params[:ingredient_ids]).map{ |ing| ing.recipes }.flatten.uniq
     else
         @recipes = Recipe.all
-    end
-    @ingredients = Ingredient.all
+    end  
   end
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+   @recipe = Recipe.new
     @ingredients = Ingredient.all
   end
 
   # GET /recipes/1/edit
   def edit
+    @ingredients = Ingredient.all
   end
 
   # POST /recipes
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
+    authorize! :create, @recipe
+
      params[:recipe][:ingredient_ids].each do |ingredient_id|
       unless ingredient_id.empty?
         ingredient = Ingredient.find(ingredient_id)
@@ -56,6 +63,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    authorize! :update, @recipe
     params[:recipe][:ingredient_ids].each do |ingredient_id|
       unless ingredient_id.empty?
         ingredient = Ingredient.find(ingredient_id)
@@ -76,6 +84,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+    authorize! :destroy, @recipe
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
@@ -91,6 +100,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :prep, :preptime, :serving, :chef_id)
+      params.require(:recipe).permit(:title, :prep, :preptime, :serving, :user_id)
     end
 end

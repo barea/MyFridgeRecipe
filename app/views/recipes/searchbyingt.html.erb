@@ -14,7 +14,6 @@
 <table>
   <thead>
     <tr>
-      <th>Prep</th>
       <th>Preptime</th>
       <th>Serving</th>
       <th>Chef</th>
@@ -25,9 +24,9 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.prep %></td>
         <td><%= recipe.preptime %></td>
         <td><%= recipe.serving %></td>
+        <td><%= recipe.user.name %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -40,4 +39,4 @@
 
 <%= link_to 'New Recipe', new_recipe_path %>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
-
+<%= link_to 'Edit Profile',edit_user_registration_path %>

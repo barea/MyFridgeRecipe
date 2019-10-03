@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Prep</th>
       <th>Preptime</th>
       <th>Serving</th>
       <th>Chef</th>
@@ -18,10 +17,9 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.title %></td>
-        <td><%= recipe.prep %></td>
         <td><%= recipe.preptime %></td>
         <td><%= recipe.serving %></td>
-        <td><%= recipe.chef_id %></td>
+        <td><%= recipe.user.name %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
