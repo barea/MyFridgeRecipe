@@ -1,0 +1,34 @@
+<%= form_tag(searchbyrecipe_recipes_path, :method => "get") do %> 
+<%= text_field_tag :title %>
+ <%= submit_tag ("search") %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Preptime</th>
+      <th>Serving</th>
+      <th>Chef</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.preptime %></td>
+        <td><%= recipe.serving %></td>
+        <td><%= recipe.user.name %></td>
+        <td><%= link_to 'Show', recipe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

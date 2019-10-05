@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
      @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.ingredients
   end
-
+#search by ingredients
   def searchbyingt
      @ingredients = Ingredient.all
     if params[:ingredient_ids]      
@@ -22,6 +22,10 @@ class RecipesController < ApplicationController
     else
         @recipes = Recipe.all
     end  
+  end
+
+  def searchbyrecipe 
+  	@recipes = Recipe.where('title like?', "%#{params[:title]}%")
   end
 
   # GET /recipes/new
