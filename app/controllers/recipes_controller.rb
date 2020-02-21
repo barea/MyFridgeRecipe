@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
         @recipes = Recipe.all
     end  
   end
-
+  
 #search by Recipe title 
   def searchbyrecipe 
     @recipes = if params[:title]
