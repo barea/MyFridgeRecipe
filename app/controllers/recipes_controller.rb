@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    #@recipes = Recipe.all
-    @recipes = Recipe.accessible_by(current_ability)
+    @recipes = Recipe.all
+    # @recipes = Recipe.accessible_by(current_ability)
   end
 
   # GET /recipes/1

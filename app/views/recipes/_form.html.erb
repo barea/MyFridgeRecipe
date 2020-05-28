@@ -11,34 +11,65 @@
     </div>
   <% end %>
 
-   <% @ingredients.each do |ingredient| %>
-  <div class="field">
-  <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>
-  <%= ingredient.name %>
-   </div>
-  <% end %>
+<div class="jumbotron">
+  <div class="container">
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<form class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+   
+  <input class="form-control form-control-sm ml-3 w-75" placeholder="Enter ingredients" 
+    aria-label="Search" data-toggle="modal" data-target="#basicExampleModal">
+  </form>
+
+<!-- Modal -->
+<div class="modal fade left" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-full-height modal-left" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title w-100 font-weight-bold"  id="myModalLabel">Ingredients</h4>
+      </div>
+
+      <div class="modal-body">
+        <p>
+            
+            <% @ingredients.each do |ingredient| %>
+            <label>
+            <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>
+            <%= ingredient.name %>
+            </label>  
+           <% end %>
+       </p>
+       <button type="button" class="btn btn-link btn-lg btn-block" data-dismiss="modal" aria-label="Close">Done</button>
+      </div>    
+    </div>
+
+</div>
+</div>
+
+</br>
+
+  
+   <div class="form-group">
+    <%= form.text_field :title, class:"form-control form-control-sm ml-3 w-75", placeholder:"Title..."  %>
   </div>
 
-  <div class="field">
-    <%= form.label :prep %>
-    <%= form.text_area :prep %>
+  
+  <div class="form-group">
+    <%= form.text_area :prep, :rows=>8, class:"form-control form-control-sm ml-3 w-75", placeholder:"Preparation" %>
   </div>
 
-  <div class="field">
-    <%= form.label :preptime %>
-    <%= form.text_field :preptime %>
+  
+   <div class="form-group">
+    <%= form.text_field :preptime, class:"form-control form-control-sm ml-3 w-75", placeholder:"Time" %>
   </div>
 
-  <div class="field">
-    <%= form.label :serving %>
-    <%= form.number_field :serving %>
+ 
+   <div class="form-group">
+    <%= form.number_field :serving, class:"form-control form-control-sm ml-3 w-75", placeholder:"Serving" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-light btn-block" %>
   </div>
 <% end %>

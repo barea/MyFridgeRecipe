@@ -1,34 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
 
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients.map(&:name).join(', ') %>
-</p>
+            <div class="center">
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+              <p id="notice"><%= notice %></p>
+              </br>
 
-<p>
-  <strong>Prep:</strong>
-  <%= @recipe.prep %>
-</p>
+              <div class="content">
+                <br />
 
-<p>
-  <strong>Preptime:</strong>
-  <%= @recipe.preptime %>
-</p>
+                <div class="row">
+                  <div class="col"></div>
 
-<p>
-  <strong>Serving:</strong>
-  <%= @recipe.serving %>
-</p>
+                  <div class="col">
+                       <img  src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"></img>
+                  </div>
 
-<p>
-  <strong>Chef:</strong>
-  <%= @recipe.user.name %>
-</p>
+                    <div class="col-md-5">
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+                      <div class="container">
+
+                        <div class="title">
+                          <h1><%= @recipe.title %></h1>
+                        </div>
+
+                        <div>
+                          <h7>By <%= @recipe.user.name %></h7>
+                        </div>
+                        <br />
+
+                         <div>
+                          <h7><i class="fa fa-clock-o fa-lg cyan-text" aria-hidden="true"></i>
+                          <%= @recipe.preptime %>
+                          </h7>
+                        </div>
+                        <br />
+
+                         <div>
+                          <h7><i class="fa fa-user-o fa-lg cyan-text" aria-hidden="true"></i>
+                            <%= @recipe.serving %>
+                          </h7>
+                        </div>
+
+                    </div>  
+                  </div>
+
+                  <div class="col"></div>
+
+                  </div>
+                  <br />
+                </div>
+            </div>           
+           </br>
+
+        <div class="container">
+            <br />
+            <div class="row">
+            <br />
+
+          <div class="col"></div>
+
+          <div class="col-md-4">
+               
+            <h5>Ingredients:</h5>
+            ----------------------
+            <h6><%= @recipe.ingredients.map(&:name).join("<br><br>").html_safe %><h6>
+                  
+           </div>
+
+
+        <div class="col"></div>
+
+        <div class="col-md-7">
+          <h5>Directions:</h5>
+          ----------------------
+          <h6><%= @recipe.prep %></h6>
+        </div>
+
+        </div>
+        <br />
+         <% if (signed_in? && current_user.chef) == true %>
+        <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+        <%= link_to 'Delete',  @recipe,  method: :delete, data: { confirm: 'Are you sure?' } %>|
+        <% end %>
+        <%= link_to 'Back', recipes_path %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

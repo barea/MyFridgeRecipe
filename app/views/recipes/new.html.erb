@@ -1,6 +1,13 @@
-<h1>New Recipe</h1>
+<div class="jumbotron">
+	    <div class="container">
 
-<%= render 'form', recipe: @recipe %>
+		  	<div class="panel panel-info">
 
-<%= link_to 'Back', recipes_path %>
-<%= link_to 'Manage ingredients', ingredients_path %>
+				<div class="panel-body">
+					<%= render 'form', recipe: @recipe %>
+				</div>
+
+			</div>
+
+  	    </div>
+</div>

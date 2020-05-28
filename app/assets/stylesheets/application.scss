@@ -1,0 +1,158 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+  *= require font-awesome
+  *= require bootstrap
+  *= require mdb
+  *= require_tree .
+  *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+div.a {
+   overflow: hidden;
+        line-height: 30px;
+        height: 60px;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+}
+
+div.center{
+	margin:auto
+}
+
+div.title{
+	color: #0086b3;	
+}
+
+div.search{
+	text-align: center;
+}
+
+div.content{
+  background-color: #dee2e6;
+  box-shadow: 6px -1px 13px 0px rgba(0, 0, 0, 0.18);
+
+}
+
+.active-cyan-2 input.form-control[type=text] {
+              border-bottom: 1px solid #4dd0e1;
+              box-shadow: 0 1px 0 0 #4dd0e1;
+            }                 
+
+             .active-cyan .fa, .active-cyan-2 .fa {
+              color: #4dd0e1;
+            }
+
+            .nav-link:hover {
+     background-color: #bbdefb;
+      opacity: 0.5;
+ }
+
+.nav-link{
+ font-size: 20px;
+ }
+ .navbar-brand:hover {
+     background-color: #bbdefb;
+      opacity: 0.5;
+ }
+ .dropdown-menu dropdown-default{
+  background-color: #bbdefb;
+ }
+
+
+.scrollbar-cyan::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-cyan::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-cyan::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #00bcd4; }
+
+.scrollbar-cyan {
+scrollbar-color: #00bcd4 #F5F5F5;
+}
+
+
+.bordered-cyan::-webkit-scrollbar-track {
+-webkit-box-shadow: none;
+border: 1px solid #00bcd4; }
+
+.bordered-cyan::-webkit-scrollbar-thumb {
+-webkit-box-shadow: none; }
+
+
+
+.example-1 {
+position: relative;
+overflow-y: scroll;
+height: 200px; }
+ 
+ .card example-1 square scrollbar-cyan bordered-cyan{
+ opacity: 0.5;
+   background-color: #bbdefb;
+ }
+
+ .modal-content
+ {
+  background-color: #bbdefb;
+ }
+
+ .btn-link 
+ {
+ color : white;
+ font-weight: bold;
+ }
+
+.actions{
+  argin: auto;
+}
+ .modal-header
+ {
+  color : white;
+ }
+
+ .dropdown-menu{
+  background-color: #bbdefb;
+ }
+
+ .navbar .dropdown-menu a:not(.active) {
+    color: #f8f9fa;
+}
+
+
+
+.dropdown-item:hover, .dropdown-item:focus {
+
+background-color: rgba(0, 0, 0, 0.12);
+}
+
+.list-group-item-primary {
+    color: #f8f9fa;
+    }
+
+.card-title{
+  color: #33b5e5;
+
+    }
+
+  
