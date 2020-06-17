@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:searchbyingt, :searchbyrecipe, :index]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
