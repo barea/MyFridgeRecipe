@@ -9,4 +9,6 @@ class Recipe < ApplicationRecord
 	validates_presence_of :serving
 	validates_presence_of :user_id
 
+	mount_uploader :image, ImageUploader
+
 end

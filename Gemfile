@@ -6,9 +6,9 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 
-gem 'pg'
+#gem 'pg'
 
-#gem 'sqlite3'
+gem 'sqlite3'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -28,6 +28,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 
 gem 'cancan'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

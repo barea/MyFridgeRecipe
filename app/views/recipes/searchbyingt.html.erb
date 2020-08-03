@@ -48,23 +48,17 @@
 <div class="col mb-4">
 <div class="card">
    <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-          alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
+     <%= link_to(image_tag(recipe.image.small_thumb.url), recipe, class:"view overlay") %>
+       
+      <div class="mask rgba-white-slight"></div>
+     
+        <div class="card-body">
+          <!--Title-->
+          <h5 class="card-title"><%= link_to recipe.title, recipe %></h5>
+          <!--Text-->
+          <div class="a"><%= recipe.prep %></div>
 
-      <div class="card-body">
-        <!--Title-->
-        <h4 class="card-title"><%= recipe.title %></h4>
-        <!--Text-->
-        <p class="card-text"><div class="a"><%= recipe.prep %></div></p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <p><%= link_to 'Show', recipe , class:"btn winter-neva-gradient"%></p>
-
-      </div>
+        </div>
     </div>
 </div>
 
