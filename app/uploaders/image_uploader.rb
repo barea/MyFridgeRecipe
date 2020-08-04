@@ -21,6 +21,14 @@ include CarrierWave::MiniMagick
     process resize_to_fill: [348.01, 231.58]
   end
 
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
+  CarrierWave.configure do |config|
+  config.cache_dir = "#{Rails.root}/tmp/uploads"
+end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
