@@ -15,10 +15,23 @@
                   <div class="col"></div>
 
                   <div class="col">
-                       <%= image_tag(@recipe.image.thumb.url, alt: 'Image') if @recipe.image? %>
-                  </div>
+                        
+                        <% if @recipe.image? %>
+
+                       <%= image_tag(@recipe.image.thumb.url, alt: 'Image') %>
+                        </div>
 
                     <div class="col-md-6">
+
+                       <% else %>
+                        <img  src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"></img>
+                         </div>
+
+                    <div class="col-md-5">
+
+                        <% end %>
+     
+                
 
                       <div class="container">
 
